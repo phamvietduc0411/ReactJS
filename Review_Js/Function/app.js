@@ -23,5 +23,10 @@ console.log(name + age + sex );
  */
  const cloneUser = {...user}
  console.log(cloneUser=== user);
- 
+
+ const arrowFunc = (string) => {return console.log('hello'+ string);
+ }
+ arrowFunc('heeeee . this is arrow function')
+
+ const arr = [1,2,3]
 

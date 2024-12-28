@@ -86,7 +86,7 @@ let user = {
     //interceptors
 //Interceptor trong code là như vậy!
 // Trước khi gửi request → Thêm thông tin, token, headers... gửi những thứ mình muốn gửi
-// Khi nhận response → Kiểm tra lỗi, chỉnh sửa dữ liệu trả về , nhận những thông tin mình muốn nhận ví dụ như chỉ nhận data hoặc header thôi
+// Khi nhận response → Kiểm tra lỗi, chỉnh sửa dữ liệu trả về , nhận những thông tin mình muốn nhận ví dụ như chỉ nhận data hoặc header thôi    
     instance.interceptors.request.use(function (config) {
         // Do something before request is sent
         return config;

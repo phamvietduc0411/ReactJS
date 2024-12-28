@@ -1,0 +1,25 @@
+INIT PROJECT NODE JS 
+
+1.' npm init ' ==> chạy xong sẽ có file  package.json 
+
+2. cài đặt trình để quản lý các package
+-- npm
+-- yarn 
+==> trong project này sẽ sử dụng yarn 
+
+3. add yarn to project
+'yarn' ==> chạy xong sẽ có file yarn.lock 
+
+THÊM PACKAGE MỚI 
+'yarn add --tên package' -D' 
+==> nếu không có -D thì package sẽ dc chạy cùng với project add vào trong  'Dependencies' trong package.json
+==> có -D thì add vào trong 'devDependencies'(trong package.json) chỉ giúp trong việc code thôi không liên quan đến project khi chạy
+
+XÓA PACKAGE
+'yarn remove --tên package' 
+
+4. add nodemon 
+- mục đích là khi chỉnh sửa trong project thì sẽ không cần chạy lại từ đầu
+
+
+

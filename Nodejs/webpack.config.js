@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   // Xác định chế độ chạy của Webpack, có thể là 'development' hoặc 'production'.
@@ -14,6 +15,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.js'
   },
+
   module: {
     rules: [
       {
@@ -21,5 +23,16 @@ module.exports = {
         use: ['style-loader', 'css-loader','sass-loader']
       }
     ]
-  }
+  },
+
+  //html web pack plugin
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'HTML Plugin',
+      //tên file muốn build ra 
+      filename: 'index.html',
+      //muốn render dựa trên 1 file có sẵn 
+      template: 'src/template.html'
+    })
+  ]
 };

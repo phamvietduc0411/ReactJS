@@ -20,5 +20,20 @@ Xong thì vào trong file 'webpack.config.js' thêm vào :
       }
     ]
   }
-  
+
+
+  ============ HTML webpack plugin =================
+
+'yarn add html-webpack-plugin -D'
+==> thêm dòng vào trong webpack.config.js
+'const HtmlWebpackPlugin = require('html-webpack-plugin')'
+
+và thêm vào trong module.exports :
+plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack App',
+      filename: 'index.html',
+      template: 'src/template.html'
+    })
+  ] 
 

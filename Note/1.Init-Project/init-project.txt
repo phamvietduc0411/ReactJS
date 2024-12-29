@@ -21,11 +21,5 @@ XÓA PACKAGE
 4. add nodemon 
 - mục đích là khi chỉnh sửa trong project thì sẽ không cần chạy lại từ đầu
 
-5. add webpack và webpack cli
-==> add vào devDependencies
-==> thêm dòng '"build": "webpack"' vào trong 'script' trong file package .json
-
-6. tạo 2 folder src và dist 
-dist để chứa file webpack.config.js 
 
 

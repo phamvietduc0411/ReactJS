@@ -1,0 +1,24 @@
+1. add webpack và webpack cli
+==> add vào devDependencies
+==> thêm dòng '"build": "webpack"' vào trong 'script' trong file package .json
+
+2.tạo 2 folder src và dist 
+dist để chứa file webpack.config.js 
+
+3. Sử dụng các Loader và biên dịch SASS
+' yarn add sass sass-loader -D'
+==> nếu muốn dùng css trong webpack thì phải cài 'style-loader' và 'css-loader'
+==> cài vào devDependencies
+
+Xong thì vào trong file 'webpack.config.js' thêm vào :
+
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss|css$/,
+        use: ['style-loader', 'css-loader','sass-loader']
+      }
+    ]
+  }
+  
+

@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   // Xác định chế độ chạy của Webpack, có thể là 'development' hoặc 'production'.
@@ -20,13 +21,14 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss|css$/,
-        use: ['style-loader', 'css-loader','sass-loader']
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
   },
 
   //html web pack plugin
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'HTML Plugin',
       //tên file muốn build ra 

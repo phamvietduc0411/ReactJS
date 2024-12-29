@@ -37,3 +37,31 @@ plugins: [
     })
   ] 
 
+=========== MINI CSS EXTRACT PLUGIN==============
+
+Vấn đề khi chèn style bằng JS
+Vấn đề hiện tại là CSS đang được JS DOM vào nên xảy ra tình trạng "chớp trắng" khi mới load trang.
+Tăng size file JS lên rất nhiều
+
+Cách fix
+Dùng mini-css-extract-plugin để tách nó ra thành những file riêng
+Chạy câu lệnh yarn add mini-css-extract-plugin -D để cài
+Lưu ý
+Hãy đảm bảo bạn đã cài và đang dùng plugin html-webpack-plugin, vì nó cần plugin này để tự động generate ra thẻ <link> trong file index.html
+Không dùng plugin style-loader cùng với mini-css-extract-plugin. Nếu đang dùng style-loader thì xóa nó đi, 2 thằng này xung đột với nhau
+
+
+sửa  module  và thêm trong file webpack.config.js
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss|css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
+  }
+
+  thêm vào phần plugin 
+   new MiniCssExtractPlugin(),

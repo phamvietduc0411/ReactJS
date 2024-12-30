@@ -1,3 +1,16 @@
+Nếu như chúng ta viết code JS có các cú pháp của phiên bản ES2022 thì những trình duyệt cũ chỉ chạy được ES6 sẽ không thể hiểu được code và dẫn đến lỗi. Vì thế transpile code thành các version cũ hơn là cần thiết. Công cụ transpile phổ biến nhất là Babel
+
+Để sử dụng Babel ở webpack các bạn cần cài yarn add @babel/core @babel/preset-env babel-loader -D.
+
+Để mình giải thích luôn thằng @babel/core là lõi của Babel
+
+@babel/preset-env là bộ preset (thiết lập sẵn) cho từng đối tượng môi trường
+
+babel-loader dùng để tích hợp Babel vào webpack.
+
+sửa lại file webpack.config.js 
+
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -69,3 +82,5 @@ module.exports = (env) =>  {
 
   }
 };
+
+

@@ -14,7 +14,7 @@ module.exports = {
   // Nơi Webpack sẽ lưu các tệp đã được đóng gói và tên của các tệp đó.
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.js'
+    filename: '[name].[contenthash].js'
   },
 
   module: {
@@ -28,7 +28,9 @@ module.exports = {
 
   //html web pack plugin
   plugins: [
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css'
+    }),
     new HtmlWebpackPlugin({
       title: 'HTML Plugin',
       //tên file muốn build ra 

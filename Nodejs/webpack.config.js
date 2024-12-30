@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { clear } = require('console');
 
 module.exports = {
   // Xác định chế độ chạy của Webpack, có thể là 'development' hoặc 'production'.
@@ -14,7 +15,8 @@ module.exports = {
   // Nơi Webpack sẽ lưu các tệp đã được đóng gói và tên của các tệp đó.
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js'
+    filename: '[name].[contenthash].js',
+    clean : true 
   },
 
   module: {

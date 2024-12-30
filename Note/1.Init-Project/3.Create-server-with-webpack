@@ -1,5 +1,13 @@
-Tạo một server bằng webpack để dev
+===================================Tạo một server bằng webpack để dev =========================
 
 Hiện tại chúng ta đang dùng Live Server trên VS code để tự động reload lại trang web. Webpack cung cấp sẵn cho chúng ta tính năng tạo một server localhost không cần dùng đến extension VS code.
 Để sử dụng thì chúng ta cài webpack-dev-server: yarn add webpack-dev-server -D
-Thêm script sau vào package.json: "start": "webpack serve"
+Thêm script sau vào package.json: "start": "webpack server"
+
+
+===================== Dọn dẹp thư mục build tự động ===============================
+
+==> nếu mà sửa src code ==> build lại thì sẽ ra file mới những file cũ trở thành file rác
+==> vào trong file webpack.config.js 
+thêm vào trong output :  'clean : true '
+

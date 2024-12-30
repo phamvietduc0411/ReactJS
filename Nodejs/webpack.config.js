@@ -38,5 +38,16 @@ module.exports = {
       //muốn render dựa trên 1 file có sẵn 
       template: 'src/template.html'
     })
-  ]
+  ],
+//không cần dùng live server trong vs ==> cái này lưu trực tiếp vào RAM
+  devServer: {
+    static: {
+      directory: 'dist' // Đường dẫn tương đối đến với thư mục chứa index.html
+    },
+    port: 3000, // Port thay cho port mặc định (8080)
+    open: true, // Mở trang webpack khi chạy terminal
+    hot: true, // Bật tính năng reload nhanh Hot Module Replacement
+    compress: true, // Bật Gzip cho các tài nguyên
+    historyApiFallback: true // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
+  }
 };

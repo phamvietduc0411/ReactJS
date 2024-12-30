@@ -1,0 +1,21 @@
+
+tạo 3 folder fonts , images, pdfs
+
+
+để webpack có thể sử dụng images,pdf dc thì phải config trong webpack.config
+
+thêm vào file webpack.config
+
+output: 
+      '  assetModuleFilename: '[file]'  '
+
+module:
+
+   '  
+         {
+          test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
+          type: 'asset/resource'
+        }
+    '
+
+

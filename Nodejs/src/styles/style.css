@@ -1,3 +1,10 @@
 body { 
     background-color: aqua;
+    font-family: 'Minie', sans-serif;
 }
+
+@font-face {
+    font-family: 'Minie';
+    src: url('../fonts/Winter\ Minie.ttf') format('truetype');
+    font-weight: 400;
+  }

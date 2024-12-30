@@ -18,7 +18,9 @@ module.exports = (env) =>  {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
-      clean : true 
+      clean : true ,
+      //quy định tên đầu ra 
+      assetModuleFilename: '[file]'
     },
   
     module: {
@@ -36,6 +38,10 @@ module.exports = (env) =>  {
               presets: ['@babel/preset-env']
             }
           }
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
+          type: 'asset/resource'
         }
       ]
     },

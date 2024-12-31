@@ -1,0 +1,22 @@
+===================================JWT============================
+JWT hay JSON Web Token là một tiêu chuẩn mở RFC 7519 để đảm bảo an toàn thông tin.
+
+Nói một cách khác JWT là một cách để tạo ra token và kiểm tra token có đúng hay không.
+
+Một số đặc điểm của JWT
+
+Một chuỗi JWT có 3 phần tách nhau bằng dấu chấm: header.payload.signature
+header chứa thông tin thuật toán mã hóa. Nó được tạo ra bằng thuật toán và dễ dàng giải mã
+payload chứa thông tin người dùng và thời gian hết hạn token. Nó cũng được tạo ra bằng thuật toán và dễ dàng giải mã.
+signature là chữ ký, phần quan trọng nhất. Cái này không thể giải mã, vì nó là mã hóa 1 chiều. Chỉ có thể kiểm tra nó có đúng hay không bằng cách mã hóa header, payload kết hợp với một private key (private key thì thường server sẽ lưu trữ). Vậy nên nếu header hoặc payload thay đổi thì signature sẽ thay đổi.
+Vậy nên nếu bạn là người code server thì đừng bao giờ lưu thông tin nhạy cảm ở payload JWT
+
+JWT có thể dùng ở hầu hết các ngôn ngữ phổ biến hiện nay, ví dụ nodejs thì cài jsonwebtoken
+
+Một số điều thú vị quanh Token based authentication
+Khi gửi access token lên server thì thường sẽ gửi thông qua HTTP Header Authorization như dưới đây
+
+Authorization: Bearer <access token>
+Tất nhiên bạn cũng có thể gửi thông qua HTTP Header khác tùy bạn, hoặc thậm chí là HTTP body nếu bạn đã thống nhất với phía server. Việc thông qua Header là Authorization đã có từ trước đây và được nhiều nơi sử dụng nên sau này nhiều anh em dev làm vậy cho dễ dàng nhận biết.
+
+Cái chữ Bearer trước access token là để phân biệt giữa các Authentication schemes. Có một số Authentication schemes như: Basic, Bearer, Digest,... Tất nhiên là cũng có thể bạn bỏ đi cái Bearer này cũng được nếu server bạn không cần nó.

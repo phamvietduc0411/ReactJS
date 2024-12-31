@@ -1,77 +1,82 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { clear } = require('console');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
-module.exports = (env) =>  {
-  const mode =  Boolean(env.development)
+module.exports = (env) => {
+  const mode = Boolean(env.development);
+
+  const basePlugin = [
+    //html web pack plugin
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+    }),
+    new HtmlWebpackPlugin({
+      title: "HTML Plugin",
+      //tên file muốn build ra
+      filename: "index.html",
+      //muốn render dựa trên 1 file có sẵn
+      template: "src/template.html",
+    }),
+  ];
+
+  const plugins = mode
+    ? basePlugin
+    : [...basePlugin, new BundleAnalyzerPlugin()];
+
   return {
     // Xác định chế độ chạy của Webpack, có thể là 'development' hoặc 'production'.
     // Điều này giúp Webpack tối ưu hóa quá trình đóng gói tùy thuộc vào môi trường.
-    mode: mode ? 'development' : 'production',
+    mode: mode ? "development" : "production",
     // Xác định điểm đầu vào (entry point) của ứng dụng.
     // Đây là tệp JavaScript hoặc tệp chính của ứng dụng mà Webpack sẽ bắt đầu đóng gói.
     entry: {
-      app: path.resolve('./src/index.js')
+      app: path.resolve("./src/index.js"),
     },
     // Nơi Webpack sẽ lưu các tệp đã được đóng gói và tên của các tệp đó.
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: '[name].[contenthash].js',
-      clean : true ,
-      //quy định tên đầu ra 
-      assetModuleFilename: '[file]'
+      path: path.resolve(__dirname, "dist"),
+      filename: "[name].[contenthash].js",
+      clean: true,
+      //quy định tên đầu ra
+      assetModuleFilename: "[file]",
     },
-  
+
     module: {
       rules: [
         {
           test: /\.s[ac]ss|css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']  
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
         },
         {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['@babel/preset-env']
-            }
-          }
+              presets: ["@babel/preset-env"],
+            },
+          },
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif|pdf)$/i,
-          type: 'asset/resource'
-        }
-      ]
+          type: "asset/resource",
+        },
+      ],
     },
-  
-    //html web pack plugin
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css'
-      }),
-      new HtmlWebpackPlugin({
-        title: 'HTML Plugin',
-        //tên file muốn build ra 
-        filename: 'index.html',
-        //muốn render dựa trên 1 file có sẵn 
-        template: 'src/template.html'
-      })
-    ],
-  //không cần dùng live server trong vs ==> cái này lưu trực tiếp vào RAM
+    plugins,
+    //không cần dùng live server trong vs ==> cái này lưu trực tiếp vào RAM
     devServer: {
       static: {
-        directory: 'dist' // Đường dẫn tương đối đến với thư mục chứa index.html
+        directory: "dist", // Đường dẫn tương đối đến với thư mục chứa index.html
       },
       port: 3000, // Port thay cho port mặc định (8080)
       open: true, // Mở trang webpack khi chạy terminal
       hot: true, // Bật tính năng reload nhanh Hot Module Replacement
       compress: true, // Bật Gzip cho các tài nguyên
-      historyApiFallback: true // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
+      historyApiFallback: true, // Set true nếu bạn dùng cho các SPA và sử dụng History API của HTML5
     },
 
-    devtool: mode ? 'source-map' : false,
-
-  }
+    devtool: mode ? "source-map" : false,
+  };
 };

@@ -1,0 +1,15 @@
+Webpack Bundle Analyzer là một công cụ giúp phân tích kích thước của các gói (bundle) được tạo ra bởi Webpack. 
+Công cụ này giúp bạn hiểu rõ thành phần nào trong ứng dụng của mình chiếm nhiều dung lượng nhất, từ đó tối ưu hóa hiệu suất và giảm thời gian tải trang.
+
+Chức năng chính:
+Hiển thị biểu đồ trực quan: Tạo biểu đồ dạng treemap thể hiện kích thước của từng module trong bundle.
+Phát hiện file lớn: Dễ dàng nhận ra file nào chiếm dung lượng lớn nhất, giúp xác định các module hoặc thư viện cần tối ưu.
+Phân tích code splitting: Hỗ trợ phân tích cách Webpack chia nhỏ các bundle (code splitting) để cải thiện tốc độ load trang.
+So sánh giữa các bản build: Có thể so sánh các bản build khác nhau để thấy sự khác biệt về kích thước sau khi cập nhật hoặc tối ưu.
+
+'yarn add webpack-bundle-analyzer -D'
+
+thêm vào file webpack.config ==> plugin:
+
+'new BundleAnalyzerPlugin()'
+

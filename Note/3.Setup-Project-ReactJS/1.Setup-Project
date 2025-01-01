@@ -1,0 +1,51 @@
+Có 3 cách phổ biến để setup một project React:
+
+1. Sử dụng Vite (Nhanh, phổ biến nhất hiện nay)
+Vite là công cụ build nhanh, nhẹ, tối ưu hơn so với create-react-app (CRA).
+Ưu điểm:
+Build cực nhanh.
+Hỗ trợ TypeScript, Tailwind, JSX sẵn.
+Cấu hình đơn giản, dễ dàng mở rộng.
+Cách thực hiện:
+
+npm create vite@latest my-react-app
+cd my-react-app
+npm install
+npm run dev
+Lưu ý: Chọn React khi được hỏi framework.
+
+2. Sử dụng create-react-app (CRA - Truyền thống, nhưng cũ hơn)
+Đây là công cụ truyền thống được Facebook phát triển.
+Ưu điểm:
+Cấu hình sẵn, chỉ cần cài đặt là chạy.
+Thích hợp cho người mới bắt đầu.
+Nhược điểm:
+Build chậm hơn Vite.
+Dung lượng project nặng, nhiều thư viện thừa.
+Cách thực hiện:
+
+npx create-react-app my-react-app
+cd my-react-app
+npm start
+
+
+3. Tạo project React từ đầu (Custom Webpack / Parcel)
+Phù hợp khi muốn tối ưu toàn bộ cấu hình hoặc cần kiến thức chuyên sâu.
+Dành cho dự án lớn hoặc cần tùy chỉnh nhiều.
+Cấu hình thủ công Webpack, Babel hoặc Parcel.
+Cách thực hiện (Webpack ví dụ):
+
+mkdir my-react-app
+cd my-react-app
+npm init -y
+npm install react react-dom webpack webpack-cli babel-loader @babel/core @babel/preset-react
+So sánh nhanh:
+Phương pháp	Ưu điểm	Nhược điểm	Phù hợp với
+Vite	Nhanh, nhẹ, dễ cấu hình	Ít plugin hơn CRA	Mọi dự án
+create-react-app (CRA)	Đơn giản, dễ bắt đầu	Chậm, project nặng	Người mới học React
+Custom Webpack	Tối ưu cao, tùy chỉnh tối đa	Mất thời gian, khó cho người mới	Dự án lớn, yêu cầu cao
+Gợi ý:
+
+Dự án mới: Dùng Vite.
+Dự án truyền thống hoặc học cơ bản: create-react-app.
+Dự án lớn, cần tối ưu mạnh: Custom Webpack.

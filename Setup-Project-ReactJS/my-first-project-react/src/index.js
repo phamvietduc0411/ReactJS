@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import Wellcome from './Wellcome'
+import Comment from './Comment'
 
 const element = (
   <div>
@@ -12,8 +13,20 @@ const element = (
     <Wellcome name='third-component' />
   </div>
 )
+
+const auth = {
+  avatar: 'https://example.com/avatar.jpg',
+  name: 'John Doe'
+}
+
+const decompositeComponent = (
+  <div>
+    <Comment author={auth} text='This is a comment' date={new Date()} />
+  </div>
+)
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(element)
+root.render(decompositeComponent)
 
 // <React.StrictMode>
 // <App />

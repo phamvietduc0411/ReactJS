@@ -3,34 +3,32 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
-import Wellcome from './Wellcome'
-import Comment from './Comment'
 
-const element = (
-  <div>
-    <Wellcome name='create-component' />
-    <Wellcome name='second-component' />
-    <Wellcome name='third-component' />
-  </div>
-)
+// const element = (
+//   <div>
+//     <Wellcome name='create-component' />
+//     <Wellcome name='second-component' />
+//     <Wellcome name='third-component' />
+//   </div>
+// )
 
-const auth = {
-  avatar: 'https://example.com/avatar.jpg',
-  name: 'John Doe'
-}
+// const auth = {
+//   avatar: 'https://example.com/avatar.jpg',
+//   name: 'John Doe'
+// }
 
-const decompositeComponent = (
-  <div>
-    <Comment author={auth} text='This is a comment' date={new Date()} />
-  </div>
-)
+// const decompositeComponent = (
+//   <div>
+//     <Comment author={auth} text='This is a comment' date={new Date()} />
+//   </div>
+// )
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
-root.render(decompositeComponent)
-
-// <React.StrictMode>
-// <App />
-// </React.StrictMode>
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

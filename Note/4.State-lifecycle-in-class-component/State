@@ -1,0 +1,7 @@
+this.state là cách duy nhất để khai báo và quản lý trạng thái (state) bên trong class component.
+Khi muốn thay đổi dữ liệu mà không cần render lại toàn bộ DOM, React sử dụng state để cập nhật chỉ những phần cần thiết.
+Giải thích chi tiết:
+state là một đối tượng chứa dữ liệu nội tại của component.
+Khi bạn gán giá trị cho this.state, React hiểu rằng component có dữ liệu cần theo dõi và có thể thay đổi.
+
+==> nếu muốn set lại state == > this.setState()

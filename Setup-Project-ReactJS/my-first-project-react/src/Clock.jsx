@@ -1,68 +1,99 @@
 import React from 'react'
 
-const list = ['BMW', 'RR', 'Toyota']
+const lists = ['BMW', 'Toyota', 'Honda']
 
-const fetchAPI = () => {
-  return new Promise((resolve, reject) => {
+const fetchApi = () => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(list)
+      resolve(lists)
     }, 1000)
   })
 }
 
-class Clock extends React.Component {
+export default class Clock extends React.Component {
   constructor(props) {
     super(props)
+    console.log('constructor')
     this.state = {
-      time: new Date().toLocaleTimeString(),
-      listCar: []
+      time: {
+        created: new Date().toLocaleTimeString()
+      },
+      seconds: {
+        created: new Date().getSeconds()
+      },
+      name: this.props.name,
+      lists: [],
+      darkMode: false
     }
+    this.date = '22/8/2022'
+    this.getTime = this.getTime.bind(this)
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => {
-      this.setState({
-        time: new Date().toLocaleTimeString()
-      })
-    }, 1000)
-    const header = document.getElementById('header')
-    console.log(header)
-    console.log('Call API')
+    const seconds = document.getElementById('seconds')
+    console.log('componentDidMount')
 
-    fetchAPI().then((res) =>
+    fetchApi().then((res) =>
       this.setState((prevState) => ({
         ...prevState,
-        listCar: res
+        lists: res
       }))
     )
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    const newList = ['Orange', 'Banana', 'Grape']
-
-    // Chỉ cập nhật khi listCar khác về mặt giá trị
-    if (JSON.stringify(prevState.listCar) !== JSON.stringify(newList)) {
-      this.setState({
-        listCar: newList
-      })
+  componentDidUpdate() {
+    // if (this.state.darkMode) {
+    //   const value = document.querySelector('input').value
+    //   console.log('Value in Input', value)
+    // }
+    console.log('componentDidUpdate')
+    if (this.state.lists.length === 0) {
+      fetchApi().then((res) =>
+        this.setState((prevState) => ({
+          ...prevState,
+          lists: res
+        }))
+      )
     }
   }
 
-  //   componentWillUnmount() {
-  //     clearInterval(this.timer)
-  //   }
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
+  }
+
+  getTime() {
+    // previousState.time !== newState.time
+    // previousState.time.created !== newState.time.created
+
+    const newState = {
+      ...this.state,
+      time: {
+        created: new Date().toLocaleTimeString()
+      },
+      seconds: { created: new Date().getSeconds() }
+    }
+    this.setState(newState)
+  }
+
+  toggleDarkMode = () => {
+    this.setState((prevState) => ({
+      ...prevState,
+      darkMode: !prevState.darkMode
+    }))
+  }
 
   render() {
-    console.log(this.state.listCar)
-
+    console.log('render')
     return (
       <div>
-        <h1 id='header'>State in React</h1>
-        <h2>Time is : {this.state.time} </h2>
-        <h2>List: {this.state.listCar}</h2>
+        <h1>Hello, world! {this.state.name}</h1>
+        <h2>It is {this.state.time.created}</h2>
+        <h2 id='seconds'>It is {this.state.seconds.created}</h2>
+        <h3>Is is {this.date}</h3>
+        <button onClick={this.getTime}>Get Time</button>
+        <button onClick={this.toggleDarkMode}>Toggle</button>
+        {this.state.darkMode && <input value={this.state.darkMode} type='text' />}
       </div>
     )
   }
 }
-
-export default Clock

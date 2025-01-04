@@ -6,7 +6,7 @@ const fetchAPI = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(list)
-    }, 3000)
+    }, 1000)
   })
 }
 
@@ -35,6 +35,17 @@ class Clock extends React.Component {
         listCar: res
       }))
     )
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const newList = ['Orange', 'Banana', 'Grape']
+
+    // Chỉ cập nhật khi listCar khác về mặt giá trị
+    if (JSON.stringify(prevState.listCar) !== JSON.stringify(newList)) {
+      this.setState({
+        listCar: newList
+      })
+    }
   }
 
   //   componentWillUnmount() {

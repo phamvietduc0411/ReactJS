@@ -1,0 +1,7 @@
+'componentDidUpdate' sẽ được gọi lập tức khi component re-render và cập
+nhật lại DOM thật . Phương thức này không chạy ở  lần render đầu tiên
+
+====> DỦNG componentDidUpdate khi
+--> muốn tracking sự thay đổi  trên state thì sẽ thực hiện 1 hành động gì đó
+
+--> call API và setState trong này nhưng cản thận đặt điều kiện nếu không đẫn đến vòng lặp vô hạn

@@ -1,0 +1,12 @@
+Trong React, prop-types được sử dụng để kiểm tra kiểu dữ liệu của các props được truyền vào một component. Nó giúp đảm bảo rằng các props được cung cấp có kiểu và giá trị như mong đợi, từ đó giúp phát hiện lỗi sớm hơn trong quá trình phát triển.
+
+Lợi ích của prop-types:
+Phát hiện lỗi sớm: Nếu một prop không có kiểu dữ liệu đúng hoặc không được truyền mà là bắt buộc, React sẽ hiển thị cảnh báo trên console.
+Tăng tính rõ ràng: Giúp các lập trình viên khác hiểu được loại dữ liệu mà một component cần.
+Cải thiện khả năng bảo trì: Khi component lớn và phức tạp hơn, việc xác định kiểu prop giúp giảm thiểu lỗi không mong muốn.
+Cài đặt prop-types
+Để sử dụng, bạn cần cài đặt thư viện prop-types:
+
+bash
+Copy code
+npm install prop-types

@@ -4,6 +4,7 @@ import Clock from './Clock'
 import BareInput from './BareInput'
 import PropsChild from './PropsChildren'
 import HandleEvent from './HandleEvent'
+import LoginCotrol from './LoginControl'
 
 function App() {
   //const [visible, setVisible] = useState(true)
@@ -15,7 +16,8 @@ function App() {
         <h1>Props Children</h1>
         <BareInput type='text' value='100' autoFocus readOnly className='input' />
       </PropsChild> */}
-      <HandleEvent />
+      {/* <HandleEvent /> */}
+      <LoginCotrol isLoggedIn={true} />
     </div>
   )
 }

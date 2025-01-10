@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Clock from './Clock'
-import BareInput from './BareInput'
-import PropsChild from './PropsChildren'
-import HandleEvent from './HandleEvent'
-import LoginCotrol from './LoginControl'
+import State from './State'
 
 function App() {
   //const [visible, setVisible] = useState(true)
@@ -17,7 +14,9 @@ function App() {
         <BareInput type='text' value='100' autoFocus readOnly className='input' />
       </PropsChild> */}
       {/* <HandleEvent /> */}
-      <LoginCotrol isLoggedIn={true} />
+      {/* <LoginCotrol isLoggedIn={true} /> */}
+
+      <State />
     </div>
   )
 }

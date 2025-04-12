@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import Clock from './Clock'
 import State from './State'
+import Input from './Input'
+import Layout from './Layout'
 
 function App() {
   //const [visible, setVisible] = useState(true)
@@ -16,7 +18,11 @@ function App() {
       {/* <HandleEvent /> */}
       {/* <LoginCotrol isLoggedIn={true} /> */}
 
-      <State />
+      {/* <State /> */}
+      <Layout>
+        <h1>Helooo</h1>
+        <Input value='100' />
+      </Layout>
     </div>
   )
 }

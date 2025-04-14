@@ -1,45 +1,57 @@
 import React from 'react'
 
 class LoginButton extends React.Component {
+  //   handleLogin = () => {
+  //     console.log('Loginnnn')
+  //   }
+
   render() {
     return (
-      <div>
-        <button onClick={this.props.onClick}>Login button </button>
-      </div>
+      <button className='login-btn' onClick={this.props.onClick}>
+        Login
+      </button>
     )
   }
 }
 
-class LogOut extends React.Component {
+class LogoutButton extends React.Component {
+  //   handleLogout = () => {
+  //     console.log('Logout')
+  //   }
+
   render() {
     return (
-      <div>
-        <button onClick={this.props.onClick}>Logout button </button>
-      </div>
+      <button className='logout-btn' onClick={this.props.onClick}>
+        Logout
+      </button>
     )
   }
 }
 
-class LoginCotrol extends React.Component {
+class LoginControl extends React.Component {
   constructor(props) {
     super(props)
-
-    this.state = { isLoggedIn: false }
+    this.state = { isLog: false }
   }
 
-  handleLogin = () => {
-    this.setState({ isLoggedIn: false })
+  isLogin = () => {
+    this.setState({ isLog: false })
   }
 
-  handleLogout = () => {
-    this.setState({ isLoggedIn: true })
+  isLogout = () => {
+    this.setState({ isLog: true })
   }
-
   render() {
-    const { isLoggedIn } = this.state
+    // const { isLog } = this.props
+    const { isLog } = this.state
+    console.log(this.state)
 
-    return <div>{isLoggedIn ? <LoginButton onClick={this.handleLogin} /> : <LogOut onClick={this.handleLogout} />}</div>
+    return (
+      <div className='login-control'>
+        {!isLog ? <LoginButton onClick={this.isLogout} /> : <LogoutButton onClick={this.isLogin} />}
+      </div>
+    )
   }
 }
 
-export default LoginCotrol
+export default LoginControl

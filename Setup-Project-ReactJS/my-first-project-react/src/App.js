@@ -1,4 +1,5 @@
 import './App.css'
+import CorrectlyState from './CorrectlyState'
 import HandleEvent from './HandleEventButton'
 import LoginControl from './LoginControl'
 
@@ -9,7 +10,8 @@ function App() {
     //   <HandleEvent></HandleEvent>
     // </div>
 
-    <LoginControl isLog={false} />
+    // <LoginControl isLog={false} />
+    <CorrectlyState />
   )
 }
 

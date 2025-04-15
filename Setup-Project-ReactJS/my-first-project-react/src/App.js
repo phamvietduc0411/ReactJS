@@ -2,7 +2,7 @@ import './App.css'
 import CorrectlyState from './CorrectlyState'
 import HandleEvent from './HandleEventButton'
 import LoginControl from './LoginControl'
-
+import ProductList from './ProductList/ProductList'
 function App() {
   //const [visible, setVisible] = useState(true)
   return (
@@ -11,7 +11,8 @@ function App() {
     // </div>
 
     // <LoginControl isLog={false} />
-    <CorrectlyState />
+    // <CorrectlyState />
+    <ProductList />
   )
 }
 

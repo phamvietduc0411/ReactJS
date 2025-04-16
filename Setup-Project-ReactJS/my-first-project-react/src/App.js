@@ -3,6 +3,7 @@ import CorrectlyState from './CorrectlyState'
 import Form from './Form/Form'
 import UncontrollComponent from './Form/UncontrollComponent'
 import HandleEvent from './HandleEventButton'
+import Calculator from './Lifting_State_Up/Calculator'
 import LoginControl from './LoginControl'
 import ProductList from './ProductList/ProductList'
 function App() {
@@ -16,7 +17,8 @@ function App() {
     // <CorrectlyState />
     // <ProductList />
     // <Form/>
-    <UncontrollComponent />
+    // <UncontrollComponent />
+    <Calculator />
   )
 }
 

@@ -1,4 +1,6 @@
 import './App.css'
+import Composition from './CompositionVsInheritence/Composition'
+import Inheritance from './CompositionVsInheritence/Inheritance'
 import CorrectlyState from './CorrectlyState'
 import Form from './Form/Form'
 import UncontrollComponent from './Form/UncontrollComponent'
@@ -18,7 +20,8 @@ function App() {
     // <ProductList />
     // <Form/>
     // <UncontrollComponent />
-    <Calculator />
+    // <Calculator />
+   < Composition/>
   )
 }
 

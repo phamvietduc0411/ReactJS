@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component , Fragment} from 'react'
 
 class Button extends Component {
     handleClick = (event) => {
@@ -18,10 +18,10 @@ class Button extends Component {
 class Composition extends Component {
   render() {
     return (
-      <div>
+      <>
         <Button/>
         <Button className='Yellow-btn' >Yellow</Button>
-      </div>
+      </>
     )
   }
 }
